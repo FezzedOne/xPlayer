@@ -1,0 +1,12 @@
+[
+    {
+        "op": "add",
+        "path": "/genericScriptContexts/xplayer",
+        "value": "/scripts/xplayer.lua"
+    },
+    {
+        "op": "add",
+        "path": "/genericScriptContexts/xplayercontrol",
+        "value": "/scripts/xplayercontrol.lua"
+    }
+]

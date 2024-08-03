@@ -1,0 +1,46 @@
+{
+  "xPlayer": {
+    "groups": {
+      "xPlayer": { "name": "xPlayer" }
+    },
+    "name": "^#f22;xPlayer",
+    "binds": {
+      "swapPlayer": {
+        "default": [{
+          "type": "key",
+          "value": "Tab",
+          "mods": []
+        }],
+        "group": "xPlayer",
+        "name": "Swap to hovered player"
+      },
+      "controlAim": {
+        "default": [{
+          "type": "key",
+          "value": "F1",
+          "mods": []
+        }],
+        "group": "xPlayer",
+        "name": "Toggle aim control"
+      },
+      "controlPathfindingRun": {
+        "default": [{
+          "type": "key",
+          "value": "Q",
+          "mods": []
+        }],
+        "group": "xPlayer",
+        "name": "Pathfinder (running)"
+      },
+      "controlPathfindingWalk": {
+        "default": [{
+          "type": "key",
+          "value": "Q",
+          "mods": ["LShift"]
+        }],
+        "group": "xPlayer",
+        "name": "Pathfinder (walking)"
+      }
+    }
+  }
+}

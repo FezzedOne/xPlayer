@@ -43,10 +43,10 @@ function init()
             sb.logInfo("[xPlayer] Initialised.")
         end
 
-        local xPlayerConfig = root.getConfiguration("xPlayer")
-        if type(xPlayerConfig) ~= "table" then
+        self.xPlayerConfig = root.getConfiguration("xPlayer")
+        if type(self.xPlayerConfig) ~= "table" then
             root.setConfiguration("xPlayer", jobject{})
-            xPlayerConfig = jobject{}
+            self.xPlayerConfig = jobject{}
         end
     end
 end
@@ -61,7 +61,7 @@ function update(dt)
         local isPrimary = entity.id() == primaryPlayerId
         local justSwapped = oldPrimaryPlayer ~= primaryPlayer
 
-        if justSwapped and not xPlayerConfig.disableAutoNick then
+        if justSwapped and not self.xPlayerConfig.disableAutoNick then
             chat.command("/nick " .. tostring(player.name())) end
         end
 

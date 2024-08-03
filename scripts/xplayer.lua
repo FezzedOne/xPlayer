@@ -48,8 +48,6 @@ function init()
             root.setConfiguration("xPlayer", jobject{})
             xPlayerConfig = jobject{}
         end
-
-        if not xPlayerConfig.disableAutoNick then chat.command("/nick " .. tostring(player.name())) end
     end
 end
 
@@ -62,6 +60,10 @@ function update(dt)
         local primaryPlayerId = world.primaryPlayer()
         local isPrimary = entity.id() == primaryPlayerId
         local justSwapped = oldPrimaryPlayer ~= primaryPlayer
+
+        if justSwapped and not xPlayerConfig.disableAutoNick then
+            chat.command("/nick " .. tostring(player.name())) end
+        end
 
         if isPrimary and input.bindDown("xPlayer", "swapPlayer") then
             local nearbyPlayers =

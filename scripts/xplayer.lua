@@ -62,7 +62,7 @@ function update(dt)
         local justSwapped = oldPrimaryPlayer ~= primaryPlayer
 
         if justSwapped and not self.xPlayerConfig.disableAutoNick then
-            chat.command("/nick " .. tostring(player.name())) end
+            chat.command("/nick " .. tostring(player.name()))
         end
 
         if isPrimary and input.bindDown("xPlayer", "swapPlayer") then

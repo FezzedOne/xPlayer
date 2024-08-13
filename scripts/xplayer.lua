@@ -61,8 +61,8 @@ function update(dt)
         local isPrimary = entity.id() == primaryPlayerId
         local justSwapped = oldPrimaryPlayer ~= primaryPlayer
 
-        if justSwapped and not self.xPlayerConfig.disableAutoNick then
-            chat.command("/nick " .. tostring(player.name()))
+        if isPrimary and justSwapped and not self.xPlayerConfig.disableAutoNick then
+            chat.command("/nick " .. world.entityName(primaryPlayerId))
         end
 
         if isPrimary and input.bindDown("xPlayer", "swapPlayer") then

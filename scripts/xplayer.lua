@@ -155,7 +155,7 @@ function update(dt)
             interface.queueMessage(queueMessage)
         end
 
-        world.setGlobal("xPlayer::oldPrimaryPlayer", primaryPlayer)
+        if isPrimary then world.setGlobal("xPlayer::oldPrimaryPlayer", primaryPlayer) end
     end
 end
 

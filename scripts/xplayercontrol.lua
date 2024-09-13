@@ -432,6 +432,9 @@ local function pathingUpdate(dt)
             self.pathDestination = nil
             goto noDestination
         end
+        -- Reset the followed player ID when the previously following player is told to go to a fixed position.
+        -- More intuitive this way.
+        self.followedId = nil
         local ownPosition = mcontroller.position()
         local distance = world.distance(self.pathDestination, ownPosition)
         local adjustedDistance = math.sqrt(distance[1] ^ 2 + distance[2] ^ 2)

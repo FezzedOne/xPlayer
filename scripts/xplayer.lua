@@ -62,7 +62,7 @@ function update(dt)
         local justSwapped = oldPrimaryPlayer ~= primaryPlayer
 
         if isPrimary and justSwapped and not self.xPlayerConfig.disableAutoNick then
-            chat.command("/nick " .. world.entityName(primaryPlayerId))
+            chat.command("/nick " .. (world.entityName(primaryPlayerId) or ""))
         end
 
         if isPrimary and input.bindDown("xPlayer", "swapPlayer") then
@@ -97,7 +97,7 @@ function update(dt)
                     and world.entityExists(nearbyPlayers[1])
                     and contains(activePlayers, world.entityUniqueId(nearbyPlayers[1]))
                 then
-                    local playerName = world.entityName(nearbyPlayers[1])
+                    local playerName = world.entityName(nearbyPlayers[1]) or ""
                     local queueMessage = "Selected ^orange,set;"
                         .. (playerName == "" and ("<" .. nearbyPlayers[1] .. ">") or playerName)
                         .. "^white,set;."
@@ -147,7 +147,7 @@ function update(dt)
         end
 
         if justSwapped and isPrimary then
-            local playerName = world.entityName(primaryPlayerId)
+            local playerName = world.entityName(primaryPlayerId) or ""
             sb.logInfo("[xPlayer] Swapped to '%s' [%s].", playerName, primaryPlayer)
             local queueMessage = "Swapped to ^orange,set;"
                 .. (playerName == "" and ("<" .. primaryPlayer .. ">") or playerName)

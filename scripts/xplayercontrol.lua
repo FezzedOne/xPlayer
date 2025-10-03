@@ -276,10 +276,10 @@ local function setPathfinderTarget(targetPosition, shouldWalk)
         end
     elseif self.followedId == nil then
         local scaleFactor = status.stat("charHeight") ~= 0 and (status.stat("charHeight") / 187.5)
-                or (
-                    status.stat("bodysize") ~= 0 and status.stat("bodysize")
-                    or (type(globals.scale == "number") and globals.scale or 1.0)
-                )
+            or (
+                status.stat("bodysize") ~= 0 and status.stat("bodysize")
+                or (type(globals.scale == "number") and globals.scale or 1.0)
+            )
         self.pathDestination = snapToGround(targetPosition, 2, true, scaleFactor)
         status.setStatusProperty("pathDestination", self.pathDestination)
         if interface then
@@ -351,7 +351,7 @@ local function pathingUpdate(dt)
                     adjDestPos = resPos or adjDestPos
                 end
             end
-            adjDestPos = vec2.add(adjDestPos, {0, 0.25})
+            adjDestPos = vec2.add(adjDestPos, { 0, 0.25 })
             adjustedDistance = math.sqrt(distance[1] ^ 2 + distance[2] ^ 2)
             -----
             if not self.pathingTimer then self.pathingTimer = 0 end
@@ -387,7 +387,7 @@ local function pathingUpdate(dt)
                 end
             else
                 self.pathDestination = self.playerPosition
-                local objects = world.objectQuery(mcontroller.position(), 3, { order = "nearest" })
+                local objects = world.objectQuery(mcontroller.position(), 1.5, { order = "nearest" })
                 for _, object in ipairs(objects) do
                     if world.getObjectParameter(object, "category") == "door" then
                         world.sendEntityMessage(object, "openDoor")
@@ -571,7 +571,11 @@ function init()
         self.oldTargetPosiition = nil
 
         local playerName, playerUuid = player.name(), player.uniqueId()
-        return sb.logInfo("[xPlayer::Player] Initialised xPlayer controls for player '%s' [%s].", playerName, playerUuid)
+        return sb.logInfo(
+            "[xPlayer::Player] Initialised xPlayer controls for player '%s' [%s].",
+            playerName,
+            playerUuid
+        )
     end
 end
 
